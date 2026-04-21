@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=2.3.8
+Type=Application
+Name=Arduino IDE
+Icon=/home/stitas/.local/share/icons/arduino/Arduino_IDE_logo.svg
+Exec="/home/stitas/Applications/arduino.AppImage" %f
+Categories=Development;IDE;
+Terminal=false
+StartupWMClass=Arduino IDE
+StartupNotify=false
