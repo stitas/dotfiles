@@ -1,0 +1,141 @@
+@define-color background #2b3339;
+@define-color background-light #323c41;
+@define-color foreground #d3c6aa;
+@define-color red #e67e80;
+@define-color green #a7c080;
+@define-color yellow #dbbc7f;
+@define-color blue #7fbbb3;
+@define-color magenta #d699b6;
+@define-color cyan #83c092;
+@define-color orange #e69875;
+
+* {
+    border: none;
+    border-radius: 0;
+    font-family: "FiraMono Nerd Font", sans-serif;
+    font-size: 14px;
+    min-height: 0;
+}
+
+window#waybar {
+    background-color: @background;
+    color: @foreground;
+}
+
+#workspaces button {
+    padding: 0 10px;
+    background-color: transparent;
+    color: @foreground;
+    margin: 0;
+}
+
+#workspaces button:hover {
+    background: @background-light;
+    box-shadow: inherit;
+}
+
+#workspaces button.active {
+    box-shadow: inset 0 -2px @cyan;
+    color: @cyan;
+    font-weight: 900;
+}
+
+#workspaces button.urgent {
+    background-color: @red;
+    color: @background;
+}
+
+#clock,
+#cpu,
+#memory,
+#temperature,
+#custom-power {
+    padding: 0 10px;
+    margin: 0 2px;
+    border-bottom: 2px solid transparent;
+    background-color: transparent;
+}
+
+#clock {
+    color: @blue;
+    border-bottom-color: @blue;
+}
+
+#temperature {
+    color: @yellow;
+    border-bottom-color: @yellow;
+}
+
+#temperature.critical {
+    color: @red;
+    border-bottom-color: @red;
+}
+
+#memory {
+    color: @magenta;
+    border-bottom-color: @magenta;
+}
+
+#cpu {
+    color: @green;
+    border-bottom-color: @green;
+}
+
+#custom-power {
+    color: @orange;
+    border-bottom-color: @orange;
+    font-size: 16px;
+    padding-right: 14px;
+}
+
+#custom-lang,
+#pulseaudio,
+#network,
+#bluetooth,
+#language,
+#battery {
+    padding: 0 10px;
+    margin: 0 2px;
+    border-bottom: 2px solid transparent;
+    background-color: transparent;
+}
+
+#custom-lang {
+    color: @cyan;
+    border-bottom-color: @cyan;
+}
+
+#pulseaudio {
+    color: @green;
+    border-bottom-color: @green;
+}
+
+#network {
+    color: @blue;
+    border-bottom-color: @blue;
+}
+
+#bluetooth {
+    color: @magenta;
+    border-bottom-color: @magenta;
+}
+
+#battery {
+    color: @yellow;
+    border-bottom-color: @yellow;
+}
+
+#battery.warning {
+    color: @orange;
+    border-bottom-color: @orange;
+}
+
+#battery.critical {
+    color: @red;
+    border-bottom-color: @red;
+}
+
+#language {;
+    color: @cyan;
+    border-bottom-color: @cyan;
+}

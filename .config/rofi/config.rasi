@@ -1,0 +1,8 @@
+configuration {
+	font: "FiraMono Nerd Font Mono 14";
+    modi: "drun";
+    show-icons: true;
+    drun-display-format: "{name}";
+}
+
+@theme "theme.rasi"
