@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=Yazi
+Comment=Launch Yazi file manager in the Kitty terminal
+Exec=kitty -e yazi %F
+Icon=/home/stitas/.local/share/icons/yazi/yazi.png
+Terminal=false
+Categories=System;Utility;FileManager;
+MimeType=inode/directory;
+Keywords=File;Manager;Explorer;Launcher
