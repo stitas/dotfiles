@@ -38,3 +38,10 @@ echo ".git" > .stow-local-ignore
 echo "README.md" >> .stow-local-ignore
 echo "new_file_or_dir" >> .stow-local-ignore
 ```
+
+## Additional stuff
+
+Global clipboard tool installed for yazi file copying but not included in dot files:
+```
+https://github.com/XYenon/clipboard.yazi
+```

@@ -35,7 +35,7 @@
 	"clock": {
 	    "interval": 1,
 	    "locale": "en_GB.UTF-8",
-	    "format": "{:%H:%M:%S}",
+	    "format": "{:%Y-%m-%d %H:%M:%S}",
 	    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
 	    "calendar": {
 	        "mode": "month",
