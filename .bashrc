@@ -29,7 +29,7 @@ export EDITOR=micro
 export VISUAL=micro
 
 # ALIASES
-alias lla="ls -la"
+alias lla="ls -lah"
 alias ff="fastfetch"
 alias btop="kitty --title btop -e btop"
 
