@@ -41,7 +41,34 @@ echo "new_file_or_dir" >> .stow-local-ignore
 
 ## Additional stuff
 
+### yazi
+
 Global clipboard tool installed for yazi file copying but not included in dot files:
 ```
 https://github.com/XYenon/clipboard.yazi
+```
+
+### Toggle distractions host script
+Enable timer
+```
+systemctl --user daemon-reload
+systemctl --user enable --now toggle-distraction-hosts.timer
+```
+
+For toggle-distraction-hosts script your user has to be given passwordless sudo access to the shell scripts. Otherwise systemd timer will fail to run the script
+```
+sudo visudo -f /etc/sudoers.d/toggle-distraction-hosts
+```
+
+Insert this line:
+```
+{YOUR_USERNAME} ALL=(root) NOPASSWD: /home/{YOUR_USERNAME}/.local/bin/toggle-distraction-hosts.sh
+```
+
+Give correct permissions and verify:
+```
+sudo chmod 0440 /etc/sudoers.d/toggle-distraction-hosts
+sudo visudo -c
+systemctl --user start toggle-distraction-hosts.service
+journalctl --user -u toggle-distraction-hosts.service -n 20
 ```
