@@ -1,0 +1,10 @@
+[Unit]
+Description=Toggle distraction hosts ON script every day at 00:00
+
+[Timer]
+OnCalendar=*-*-* 00:00:00
+Unit=toggle-distraction-hosts-on.service
+Persistent=true
+
+[Install]
+WantedBy=timers.target

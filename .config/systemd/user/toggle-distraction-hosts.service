@@ -1,6 +1,0 @@
-[Unit]
-Description=Run my script
-
-[Service]
-Type=oneshot
-ExecStart=/usr/bin/sudo -n /home/stitas/.local/bin/toggle-distraction-hosts.sh

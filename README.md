@@ -52,7 +52,8 @@ https://github.com/XYenon/clipboard.yazi
 Enable timer
 ```
 systemctl --user daemon-reload
-systemctl --user enable --now toggle-distraction-hosts.timer
+systemctl --user enable --now toggle-distraction-hosts-on.timer
+systemctl --user enable --now toggle-distraction-hosts-off.timer
 ```
 
 For toggle-distraction-hosts script your user has to be given passwordless sudo access to the shell scripts. Otherwise systemd timer will fail to run the script
@@ -60,15 +61,18 @@ For toggle-distraction-hosts script your user has to be given passwordless sudo 
 sudo visudo -f /etc/sudoers.d/toggle-distraction-hosts
 ```
 
-Insert this line:
+Insert these lines:
 ```
-{YOUR_USERNAME} ALL=(root) NOPASSWD: /home/{YOUR_USERNAME}/.local/bin/toggle-distraction-hosts.sh
+{YOUR_USERNAME} ALL=(root) NOPASSWD: /home/{YOUR_USERNAME}/.local/bin/toggle-distraction-hosts-on.sh
+{YOUR_USERNAME} ALL=(root) NOPASSWD: /home/{YOUR_USERNAME}/.local/bin/toggle-distraction-hosts-off.sh
 ```
 
 Give correct permissions and verify:
 ```
 sudo chmod 0440 /etc/sudoers.d/toggle-distraction-hosts
 sudo visudo -c
-systemctl --user start toggle-distraction-hosts.service
-journalctl --user -u toggle-distraction-hosts.service -n 20
+systemctl --user start toggle-distraction-hosts-on.service
+journalctl --user -u toggle-distraction-hosts-on.service -n 20
+systemctl --user start toggle-distraction-hosts-off.service
+journalctl --user -u toggle-distraction-hosts-off.service -n 20
 ```
