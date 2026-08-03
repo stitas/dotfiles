@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=5.2.3
+Type=Application
+Name=qbitorrent
+Icon=/home/stitas/.local/share/icons/qbittorrent/qbittorrent.svg
+Exec="/home/stitas/Applications/qbittorrent.AppImage" %f
+Categories=Torrent;Tool;Downloads
+Terminal=false
+StartupWMClass=qbitorrent
+StartupNotify=false

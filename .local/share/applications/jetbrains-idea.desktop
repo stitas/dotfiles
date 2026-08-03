@@ -2,8 +2,8 @@
 Version=1.0
 Type=Application
 Name=IntelliJ IDEA
-Icon=/opt/idea-IU-253.31033.145/bin/idea.svg
-Exec="/opt/idea-IU-253.31033.145/bin/idea" %f
+Icon=/opt/idea-IU-261.24374.151/bin/idea.svg
+Exec="/opt/idea-IU-261.24374.151/bin/idea" %f
 Comment=The Leading IDE for Professional Development in Java and Kotlin
 Categories=Development;IDE;
 Terminal=false
