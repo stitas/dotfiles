@@ -22,14 +22,35 @@ ssid="$(
 [ -z "$ssid" ] && exit 0
 [ "$ssid" = "<hidden>" ] && exit 0
 
-# If already connected to selected SSID, do nothing.
+check_captive_portal() {
+    # Give DHCP/connectivity detection a moment to finish.
+    sleep 1
+
+    connectivity="${WIFI_TEST_CONNECTIVITY:-$(nmcli networking connectivity check)}"
+
+    case "$connectivity" in
+        portal)
+            notify-send "Wi-Fi" "Login required for $ssid"
+            xdg-open "http://neverssl.com/" >/dev/null 2>&1 &
+            ;;
+        full)
+            notify-send "Wi-Fi" "Connected to $ssid"
+            ;;
+        limited)
+            notify-send "Wi-Fi" "Connected to $ssid, but Internet access is limited"
+            ;;
+    esac
+}
+
+# Already connected.
 if nmcli -t -f ACTIVE,SSID dev wifi | grep -Fxq "yes:$ssid"; then
+    check_captive_portal
     exit 0
 fi
 
-# First try connecting without password.
-# This works for already-saved networks.
+# Try connecting. Works for open and already-saved networks.
 if nmcli dev wifi connect "$ssid"; then
+    check_captive_portal
     exit 0
 fi
 
@@ -38,9 +59,9 @@ security="$(
     awk -F: -v s="$ssid" '$1 == s { print $2; exit }'
 )"
 
-# If open network, the previous connect should have worked.
-# If it failed, just exit.
+# Open network failed for some other reason.
 if [ -z "$security" ] || [ "$security" = "--" ]; then
+    notify-send "Wi-Fi" "Failed to connect to $ssid"
     exit 1
 fi
 
@@ -48,4 +69,9 @@ fi
 pass="$(rofi -dmenu -password -p "Password for $ssid")"
 [ -z "$pass" ] && exit 0
 
-nmcli dev wifi connect "$ssid" password "$pass"
+if nmcli dev wifi connect "$ssid" password "$pass"; then
+    check_captive_portal
+else
+    notify-send "Wi-Fi" "Failed to connect to $ssid"
+    exit 1
+fi
