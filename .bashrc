@@ -42,3 +42,7 @@ function y() {
 	rm -f -- "$tmp"
 }
 . "$HOME/.cargo/env"
+
+# >>> Codex installer >>>
+export PATH="/home/stitas/.local/bin:$PATH"
+# <<< Codex installer <<<
