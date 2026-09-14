@@ -26,7 +26,7 @@ check_captive_portal() {
     # Give DHCP/connectivity detection a moment to finish.
     sleep 1
 
-    connectivity="${WIFI_TEST_CONNECTIVITY:-$(nmcli networking connectivity check)}"
+    connectivity="$(nmcli networking connectivity check)"
 
     case "$connectivity" in
         portal)
